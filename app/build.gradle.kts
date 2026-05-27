@@ -1,3 +1,4 @@
+import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -14,6 +15,14 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+        val properties = Properties().apply {
+            val localPropertiesFile = rootProject.file("local.properties")
+            if (localPropertiesFile.exists()) {
+                load(localPropertiesFile.inputStream())
+            }
+        }
+        val apiKey = properties.getProperty("GOOGLE_BOOKS_API_KEY") ?: ""
+        buildConfigField("String", "GOOGLE_BOOKS_API_KEY", "\"$apiKey\"")
     }
 
     buildFeatures {
