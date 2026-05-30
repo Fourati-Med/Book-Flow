@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Book Flow</string>
+    <string name="book_cover_description">Couverture du livre</string>
 </resources>
