@@ -89,7 +89,10 @@ class HomeFragment : Fragment() {
 
     private fun onBookClicked(book: Book) {
         Log.d(tag, "Livre cliqué : ${book.title}")
-        // TODO : Ouvrir BookDetailActivity avec book.id
+        // Lancer BookDetailActivity en passant l'ID du livre
+        val intent = android.content.Intent(requireContext(), com.example.bookflow.activities.BookDetailActivity::class.java)
+        intent.putExtra(com.example.bookflow.activities.BookDetailActivity.EXTRA_BOOK_ID, book.id)
+        startActivity(intent)
     }
 
     // nettoyage du binding pour éviter les fuites mémoire
