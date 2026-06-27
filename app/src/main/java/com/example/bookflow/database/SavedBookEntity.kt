@@ -11,7 +11,7 @@ data class SavedBookEntity(
     val id: String,
     val title: String,
     val authors: String,
-    val coverUrl: String,
+    val coverUrl: String?,
     val description: String?,
     val pageCount: Int?,
     val averageRating: Double?,
