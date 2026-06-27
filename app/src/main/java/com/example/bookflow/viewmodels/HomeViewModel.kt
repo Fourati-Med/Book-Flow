@@ -14,15 +14,15 @@ class HomeViewModel : ViewModel() {
     private val repository = BookRepository()
 
     // Liste des livres : MutableLiveData privé, LiveData public en lecture seule
-    private val _books = MutableLiveData<List<Book>>()
+    private val _books = MutableLiveData<List<Book>>(emptyList())
     val books: LiveData<List<Book>> = _books
 
     // Indicateur de chargement (true = afficher ProgressBar)
-     private val _isLoading = MutableLiveData<Boolean>()
+     private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
     // Message d'erreur (null = pas d'erreur)
-    private val _errorMessage = MutableLiveData<String?>()
+    private val _errorMessage = MutableLiveData<String?>(null)
     val errorMessage: LiveData<String?> = _errorMessage
 
     init{

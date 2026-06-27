@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
         // Liste des livres
         viewModel.books.observe(viewLifecycleOwner) { books ->
             Log.d(tag, "Mise à jour UI : ${books.size} livres reçus")
-            bookAdapter.submitList(books)
+            bookAdapter.submitList(books ?: emptyList())
         }
 
         // État de chargement
