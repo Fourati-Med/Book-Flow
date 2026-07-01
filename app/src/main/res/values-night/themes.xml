@@ -1,7 +1,44 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.BookFlow" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+    <!-- Base theme : sombre violet -->
+    <style name="Base.Theme.BookFlow" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Couleurs primaires -->
+        <item name="colorPrimary">@color/accent_pink</item>
+        <item name="colorOnPrimary">@color/text_primary</item>
+        <item name="colorPrimaryContainer">@color/accent_pink_dark</item>
+        <item name="colorOnPrimaryContainer">@color/text_primary</item>
+
+        <!-- Couleurs secondaires -->
+        <item name="colorSecondary">@color/accent_purple</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+
+        <!-- Fond -->
+        <item name="android:colorBackground">@color/bg_primary</item>
+        <item name="colorSurface">@color/bg_secondary</item>
+        <item name="colorSurfaceVariant">@color/bg_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+
+        <!-- Barres système -->
+        <item name="android:statusBarColor">@color/bg_toolbar</item>
+        <item name="android:navigationBarColor">@color/bg_toolbar</item>
+
+        <!-- Bottom nav -->
+        <item name="bottomNavigationStyle">@style/BookFlow.BottomNav</item>
     </style>
+
+    <style name="Theme.BookFlow" parent="Base.Theme.BookFlow" />
+
+    <!-- Style Bottom Navigation custom -->
+    <style name="BookFlow.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/bg_toolbar</item>
+        <item name="itemIconTint">@color/bottom_nav_selector</item>
+        <item name="itemTextColor">@color/bottom_nav_selector</item>
+        <item name="itemActiveIndicatorStyle">@style/BookFlow.BottomNav.Indicator</item>
+    </style>
+
+    <style name="BookFlow.BottomNav.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/accent_pink</item>
+    </style>
+
 </resources>

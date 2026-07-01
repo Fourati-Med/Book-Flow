@@ -3,18 +3,17 @@ package com.example.bookflow.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bookflow.R
 import com.example.bookflow.databinding.ItemBookBinding
 import com.example.bookflow.models.Book
 
-
 class BookAdapter(
     private val onBookClick: (Book) -> Unit
-) : ListAdapter<Book, BookAdapter.BookViewHolder>(BookDiffCallback()) {
+) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+
+    private var books: List<Book> = emptyList()
 
     class BookViewHolder(
         private val binding: ItemBookBinding,
@@ -33,6 +32,7 @@ class BookAdapter(
                 binding.textViewRating.visibility = View.VISIBLE
             } else {
                 binding.textViewRating.text = "—"
+                binding.textViewRating.visibility = View.VISIBLE
             }
 
             Glide.with(binding.imageViewCover.context)
@@ -48,30 +48,26 @@ class BookAdapter(
         }
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val binding = ItemBookBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
+
         return BookViewHolder(binding, onBookClick)
     }
 
-
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.bind(getItem(position))
-    }
-}
-
-
-class BookDiffCallback : DiffUtil.ItemCallback<Book>() {
-
-    override fun areItemsTheSame(oldItem: Book, newItem: Book): Boolean {
-        return oldItem.id == newItem.id
+        holder.bind(books[position])
     }
 
-    override fun areContentsTheSame(oldItem: Book, newItem: Book): Boolean {
-        return oldItem == newItem
+    override fun getItemCount(): Int {
+        return books.size
+    }
+
+    fun updateBooks(newBooks: List<Book>) {
+        books = newBooks
+        notifyDataSetChanged()
     }
 }

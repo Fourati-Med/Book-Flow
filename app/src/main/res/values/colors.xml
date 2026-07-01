@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Fond -->
+    <color name="bg_primary">#0A0614</color>
+    <color name="bg_secondary">#141024</color>
+    <color name="bg_card">#1E1A2E</color>
+    <color name="bg_toolbar">#0F0A1F</color>
+
+    <!-- Accents -->
+    <color name="accent_pink">#E91E63</color>
+    <color name="accent_pink_dark">#AD1457</color>
+    <color name="accent_purple">#9C27B0</color>
+    <color name="accent_purple_light">#BA68C8</color>
+
+    <!-- Texte -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0C4</color>
+    <color name="text_tertiary">#7E7A96</color>
+
+    <!-- Divers -->
+    <color name="divider">#2A2542</color>
+    <color name="rating_star">#FFC107</color>
 </resources>

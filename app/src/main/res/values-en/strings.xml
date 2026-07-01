@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Book Flow</string>
+
+    <!-- Navigation -->
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="library">Library</string>
+    <string name="details">Details</string>
+    <string name="back">Back</string>
+    <string name="change_language">Change language</string>
+    <string name="choose_language">Choose a language</string>
+    <string name="language_french">Français</string>
+    <string name="language_english">English</string>
+    <string name="cancel">Cancel</string>
+    <string name="logout">Log out</string>
+    <string name="logout_confirmation_title">Log out?</string>
+    <string name="logout_confirmation_message">You will need to enter your credentials again to access the app.</string>
+    <string name="confirm">Confirm</string>
+
+    <!-- Authentication -->
+    <string name="login_title">Sign in</string>
+    <string name="register_title">Sign up</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="login_subtitle">Sign in to access your library.</string>
+    <string name="create_your_account">Create your account</string>
+    <string name="register_subtitle">Sign up to save your favorite books.</string>
+    <string name="display_name">Name</string>
+    <string name="email">Email address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="login_button">Sign in</string>
+    <string name="register_button">Create my account</string>
+    <string name="create_account_prompt">No account yet? Sign up</string>
+    <string name="already_have_account">Already have an account? Sign in</string>
+    <string name="local_auth_notice">This demo account is stored locally on this device.</string>
+    <string name="invalid_name">Enter a name with at least 2 characters.</string>
+    <string name="invalid_email">Enter a valid email address.</string>
+    <string name="password_required">Enter your password.</string>
+    <string name="password_too_short">The password must contain at least 6 characters.</string>
+    <string name="passwords_do_not_match">The passwords do not match.</string>
+    <string name="invalid_credentials">Incorrect email address or password.</string>
+    <string name="no_local_account">No account exists on this device yet. Sign up first.</string>
+
+    <!-- Books -->
+    <string name="book_cover_description">Book cover</string>
+    <string name="library_empty">Your library is empty.\nAdd a book from its details page.</string>
+    <string name="description">Description</string>
+    <string name="add_to_library">📚 Add to my library</string>
+    <string name="remove_from_library">Remove from my library</string>
+    <string name="error_no_book">Error: no book specified</string>
+    <string name="rating_value">⭐ %1$.1f</string>
+    <string name="not_rated">Not rated</string>
+    <string name="page_count">%1$d pages</string>
+    <string name="pages_unknown">Unknown page count</string>
+    <string name="pages_unspecified">Page count not provided</string>
+    <string name="rating_and_pages">%1$s • %2$s</string>
+    <string name="no_description">No description available.</string>
+    <string name="unknown_author">Unknown author</string>
+    <string name="unknown_title">Unknown title</string>
+    <string name="search_hint">Search for a book or author…</string>
+    <string name="search_prompt">Search by title, author, or ISBN.</string>
+    <string name="search_no_result">No results for “%1$s”.</string>
+    <string name="load_books_error">Unable to load books. Check your connection.</string>
+    <string name="search_error">Search failed. Try again.</string>
+    <string name="book_details_error">Unable to load the book details.</string>
+    <string name="library_update_error">Unable to update the library.</string>
+</resources>

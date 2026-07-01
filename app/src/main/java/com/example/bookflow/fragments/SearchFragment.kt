@@ -1,25 +1,34 @@
 package com.example.bookflow.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bookflow.activities.BookDetailActivity
 import com.example.bookflow.adapters.BookAdapter
 import com.example.bookflow.databinding.FragmentSearchBinding
 import com.example.bookflow.models.Book
-import com.example.bookflow.viewmodels.SearchViewModel
-
+import com.example.bookflow.repositories.BookRepository
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SearchFragment : Fragment() {
+
+    private val tag = "SearchFragment"
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SearchViewModel by viewModels()
+    private val repository = BookRepository()
     private lateinit var bookAdapter: BookAdapter
+
+    // Job de la recherche courante (pour l'annuler si nouvelle recherche)
+    private var searchJob: Job? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +44,6 @@ class SearchFragment : Fragment() {
 
         setupRecyclerView()
         setupSearchInput()
-        observeViewModel()
     }
 
     private fun setupRecyclerView() {
@@ -48,48 +56,63 @@ class SearchFragment : Fragment() {
         }
     }
 
-
     private fun setupSearchInput() {
         binding.searchEditText.addTextChangedListener { text ->
-            viewModel.search(text?.toString() ?: "")
+            performSearch(text?.toString() ?: "")
         }
     }
 
-    private fun observeViewModel() {
-        viewModel.searchResults.observe(viewLifecycleOwner) { books ->
-            bookAdapter.submitList(books)
 
-            // Afficher la liste ou le message d'info selon le résultat
-            if (books.isEmpty()) {
-                binding.searchRecyclerView.visibility = View.GONE
-                binding.searchInfoText.visibility = View.VISIBLE
-                val currentQuery = binding.searchEditText.text?.toString() ?: ""
-                binding.searchInfoText.text = if (currentQuery.isBlank()) {
-                    " Recherchez un livre par titre, auteur ou ISBN"
+    private fun performSearch(query: String) {
+        // Annuler la recherche précédente
+        searchJob?.cancel()
+
+        // Si query vide, on vide les résultats
+        if (query.isBlank()) {
+            bookAdapter.updateBooks(emptyList())
+            binding.searchRecyclerView.visibility = View.GONE
+            binding.searchInfoText.text = "Recherchez un livre par titre, auteur ou ISBN"
+            binding.searchInfoText.visibility = View.VISIBLE
+            return
+        }
+
+        searchJob = lifecycleScope.launch {
+            // Debounce : on attend 500ms
+            delay(500)
+
+            binding.searchProgressBar.visibility = View.VISIBLE
+
+            try {
+                val books = repository.searchBooks(query = query, maxResults = 20)
+                Log.d(tag, "Recherche '$query' : ${books.size} résultats")
+
+                bookAdapter.updateBooks(books)
+
+                if (books.isEmpty()) {
+                    binding.searchRecyclerView.visibility = View.GONE
+                    binding.searchInfoText.text = "Aucun résultat pour \"$query\""
+                    binding.searchInfoText.visibility = View.VISIBLE
                 } else {
-                    "Aucun résultat pour \"$currentQuery\""
+                    binding.searchRecyclerView.visibility = View.VISIBLE
+                    binding.searchInfoText.visibility = View.GONE
                 }
-            } else {
-                binding.searchRecyclerView.visibility = View.VISIBLE
-                binding.searchInfoText.visibility = View.GONE
-            }
-        }
 
-        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
-            binding.searchProgressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-        }
-
-        viewModel.errorMessage.observe(viewLifecycleOwner) { errorMessage ->
-            if (errorMessage != null) {
-                binding.searchInfoText.text = errorMessage
+            } catch (e: Exception) {
+                Log.e(tag, "Erreur de recherche", e)
+                binding.searchInfoText.text = "Erreur de recherche. Réessayez."
                 binding.searchInfoText.visibility = View.VISIBLE
                 binding.searchRecyclerView.visibility = View.GONE
+
+            } finally {
+                binding.searchProgressBar.visibility = View.GONE
             }
         }
     }
 
     private fun onBookClicked(book: Book) {
-        // TODO : Ouvrir BookDetailActivity avec book.id
+        val intent = android.content.Intent(requireContext(), BookDetailActivity::class.java)
+        intent.putExtra(BookDetailActivity.EXTRA_BOOK_ID, book.id)
+        startActivity(intent)
     }
 
     override fun onDestroyView() {
@@ -97,6 +120,7 @@ class SearchFragment : Fragment() {
         _binding = null
     }
 }
+
 
 private fun com.google.android.material.textfield.TextInputEditText.addTextChangedListener(
     onTextChanged: (CharSequence?) -> Unit

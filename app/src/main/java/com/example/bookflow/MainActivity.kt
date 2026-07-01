@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
 
         // Récupérer le NavHostFragment
         val navHostFragment = supportFragmentManager
@@ -30,14 +29,5 @@ class MainActivity : AppCompatActivity() {
         // Lier la BottomNav au NavController
         binding.bottomNavigation.setupWithNavController(navController)
 
-        // Configurer l'AppBar
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.homeFragment,
-                R.id.searchFragment,
-                R.id.libraryFragment
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 }

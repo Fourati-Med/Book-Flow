@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,20 +14,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookFlow">
+
+        <!-- LoginActivity : point d'entrée si login activé -->
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <!-- RegisterActivity -->
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.LoginActivity" />
+
+        <!-- MainActivity : après connexion -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <!-- BookDetailActivity : détails d'un livre -->
         <activity
             android:name=".activities.BookDetailActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
+
     </application>
 
 </manifest>
