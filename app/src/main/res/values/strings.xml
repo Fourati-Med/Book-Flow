@@ -1,3 +1,67 @@
 <resources>
     <string name="app_name">Book Flow</string>
+
+    <!-- Navigation -->
+    <string name="home">Accueil</string>
+    <string name="search">Recherche</string>
+    <string name="library">Bibliothèque</string>
+    <string name="details">Détails</string>
+    <string name="back">Retour</string>
+    <string name="change_language">Changer de langue</string>
+    <string name="choose_language">Choisir la langue</string>
+    <string name="language_french">Français</string>
+    <string name="language_english">English</string>
+    <string name="cancel">Annuler</string>
+    <string name="logout">Se déconnecter</string>
+    <string name="logout_confirmation_title">Se déconnecter ?</string>
+    <string name="logout_confirmation_message">Vous devrez saisir à nouveau vos identifiants pour accéder à l’application.</string>
+    <string name="confirm">Confirmer</string>
+
+    <!-- Authentification -->
+    <string name="login_title">Connexion</string>
+    <string name="register_title">Inscription</string>
+    <string name="welcome_back">Bon retour !</string>
+    <string name="login_subtitle">Connectez-vous pour retrouver votre bibliothèque.</string>
+    <string name="create_your_account">Créez votre compte</string>
+    <string name="register_subtitle">Inscrivez-vous pour enregistrer vos livres préférés.</string>
+    <string name="display_name">Nom</string>
+    <string name="email">Adresse e-mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="confirm_password">Confirmer le mot de passe</string>
+    <string name="login_button">Se connecter</string>
+    <string name="register_button">Créer mon compte</string>
+    <string name="create_account_prompt">Pas encore de compte ? S’inscrire</string>
+    <string name="already_have_account">Déjà un compte ? Se connecter</string>
+    <string name="local_auth_notice">Compte enregistré localement sur cet appareil pour la démonstration du projet.</string>
+    <string name="invalid_name">Saisissez un nom d’au moins 2 caractères.</string>
+    <string name="invalid_email">Saisissez une adresse e-mail valide.</string>
+    <string name="password_required">Saisissez votre mot de passe.</string>
+    <string name="password_too_short">Le mot de passe doit contenir au moins 6 caractères.</string>
+    <string name="passwords_do_not_match">Les mots de passe ne correspondent pas.</string>
+    <string name="invalid_credentials">Adresse e-mail ou mot de passe incorrect.</string>
+    <string name="no_local_account">Aucun compte n’existe encore sur cet appareil. Inscrivez-vous d’abord.</string>
+
+    <!-- Livres -->
+    <string name="book_cover_description">Couverture du livre</string>
+    <string name="library_empty">Votre bibliothèque est vide.\nAjoutez un livre depuis sa page de détails.</string>
+    <string name="description">Description</string>
+    <string name="add_to_library">📚 Ajouter à ma bibliothèque</string>
+    <string name="remove_from_library">Retirer de ma bibliothèque</string>
+    <string name="error_no_book">Erreur : aucun livre spécifié</string>
+    <string name="rating_value">⭐ %1$.1f</string>
+    <string name="not_rated">Non noté</string>
+    <string name="page_count">%1$d pages</string>
+    <string name="pages_unknown">Pages inconnues</string>
+    <string name="pages_unspecified">Pages non précisées</string>
+    <string name="rating_and_pages">%1$s • %2$s</string>
+    <string name="no_description">Aucune description disponible.</string>
+    <string name="unknown_author">Auteur inconnu</string>
+    <string name="unknown_title">Titre inconnu</string>
+    <string name="search_hint">Rechercher un livre, un auteur…</string>
+    <string name="search_prompt">Recherchez un livre par titre, auteur ou ISBN.</string>
+    <string name="search_no_result">Aucun résultat pour « %1$s ».</string>
+    <string name="load_books_error">Impossible de charger les livres. Vérifiez votre connexion.</string>
+    <string name="search_error">Erreur de recherche. Réessayez.</string>
+    <string name="book_details_error">Impossible de charger les détails du livre.</string>
+    <string name="library_update_error">Impossible de modifier la bibliothèque.</string>
 </resources>
