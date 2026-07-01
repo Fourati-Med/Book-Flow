@@ -16,4 +16,10 @@
         android:icon="@drawable/ic_library"
         android:title="@string/library" />
 
+    <!-- ✅ NOUVEAU -->
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile" />
+
 </menu>
