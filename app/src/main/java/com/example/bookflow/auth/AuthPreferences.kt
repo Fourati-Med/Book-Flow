@@ -6,10 +6,7 @@ import java.security.MessageDigest
 import java.security.SecureRandom
 import java.util.Locale
 
-/**
- * Authentification locale destinée à la démonstration du projet.
- * Le mot de passe n'est jamais enregistré en clair : seul un hash salé est conservé.
- */
+
 object AuthPreferences {
 
     private const val PREFS_NAME = "book_flow_auth"
