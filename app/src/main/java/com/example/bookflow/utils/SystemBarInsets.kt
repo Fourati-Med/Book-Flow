@@ -12,10 +12,7 @@ import com.google.android.material.color.MaterialColors
 
 object SystemBarInsets {
 
-    /**
-     * Place correctement la barre d'outils sous la barre d'état Android 15+
-     * et protège le bas de l'écran de la barre de navigation système.
-     */
+
     fun apply(
         activity: AppCompatActivity,
         topInsetView: View,
