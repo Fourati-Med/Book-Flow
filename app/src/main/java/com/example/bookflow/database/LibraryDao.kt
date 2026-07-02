@@ -29,7 +29,7 @@ interface LibraryDao {
 
 
      //Vérifie si un livre est déjà sauvegardé.
-      //Retourne 0 si non, 1 si oui.
+
 
     @Query("SELECT COUNT(*) FROM saved_books WHERE id = :bookId")
     suspend fun isBookSaved(bookId: String): Int

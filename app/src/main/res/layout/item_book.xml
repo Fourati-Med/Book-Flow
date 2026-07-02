@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:padding="12dp">
 
-        <!-- Couverture avec coins arrondis -->
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/coverCardView"
             android:layout_width="80dp"
@@ -38,7 +38,7 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Titre -->
+
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="0dp"
@@ -54,7 +54,7 @@
             app:layout_constraintTop_toTopOf="@id/coverCardView"
             tools:text="Harry Potter à l'école des sorciers" />
 
-        <!-- Auteur -->
+
         <TextView
             android:id="@+id/textViewAuthor"
             android:layout_width="0dp"
@@ -70,7 +70,7 @@
             app:layout_constraintTop_toBottomOf="@id/textViewTitle"
             tools:text="J.K. Rowling" />
 
-        <!-- Note et pages en bas de la carte -->
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
