@@ -1,0 +1,4 @@
+<resources>
+    <style name="Base.Theme.BookFlow" parent="Theme.Material3.DayNight.NoActionBar" />
+    <style name="Theme.BookFlow" parent="Base.Theme.BookFlow" />
+</resources>
